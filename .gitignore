@@ -36,5 +36,18 @@ yarn-error.log*
 next-env.d.ts
 
 .env
-
+/dist
 /media
+.pnpm-store/
+# Telegram bot files
+bot-setup.js
+telegram-bot/
+
+# Development files
+.env.local
+.env.development
+.env.test
+*.log
+.DS_Store
+.vscode/
+.idea/

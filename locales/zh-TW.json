@@ -1,0 +1,218 @@
+{
+  "Index": {
+    "search": "搜尋",
+    "searchPlaceholder": "搜尋餐廳...",
+    "chooseCity": "選擇您的城市",
+    "city": "城市",
+    "back": "返回",
+    "delivery": "外送",
+    "deliveryDetailed": "外送時間",
+    "selfCare": "自取",
+    "selfCareTitle": "取餐地點",
+    "selfCareDetailed": "準備時間",
+    "orderType": "取餐方式",
+    "gr": "克",
+    "clear": "清除",
+    "bucket": "購物車",
+    "toBucket": "加入購物車",
+    "noItems": "您還沒有添加任何商品",
+    "emptyBucket": "您的購物車是空的",
+    "add": "添加",
+    "phoneNumber": "電話號碼",
+    "min": "分鐘",
+    "now": "現在",
+    "show": "顯示",
+    "account": "帳戶",
+    "profile": "個人資料",
+    "logout": "登出",
+    "language": "語言",
+    "home": "首頁",
+    "categories": "分類",
+    "save": "儲存",
+    "delete": "刪除",
+    "cancel": "取消",
+    "continue": "繼續",
+    "noReview": "評論較少",
+    "description": "描述",
+    "quantity": "數量",
+    "dishes": "菜品",
+    "freeDelivery": "免費外送",
+    "availableLater": "稍後提供",
+    "deliveryPrice": "外送費用",
+    "clearFilters": "清除篩選"
+  },
+
+  "Login": {
+    "login": "登入",
+    "rules": "繼續即表示您同意我們的條款",
+    "noAccount": "還沒有帳戶？",
+    "haveAccount": "已有帳戶？",
+    "register": "註冊",
+    "resetPassword": "重設密碼",
+    "loginViaEmail": "使用電子郵件登入",
+    "registerAccount": "使用電子郵件創建免費帳戶"
+  },
+
+  "MainPage": {
+    "heading": "熱門餐廳",
+
+    "sortBy": "排序方式",
+    "whichShow": "優先顯示哪些？",
+    "trustOne": "隨機推薦",
+    "ratingOne": "高評分",
+    "fastOne": "快速",
+    "budgetOne": "經濟實惠",
+    "expensiveOne": "高級",
+    "average": "平均",
+
+    "phone": "電話",
+    "email": "電子郵件",
+    "address": "地址",
+    "workingHours": "營業時間",
+    "about": "關於我們",
+    "advertisement": "廣告",
+    "collab": "合作",
+    "feedback": "留下反饋",
+    "rights": "版權所有"
+  },
+
+  "RestaurantPage": {
+    "menu": "菜單",
+    "currentRestaurant": "當前餐廳",
+    "changeRestaurant1": "之前從餐廳添加的所有菜品",
+    "changeRestaurant2": "將從購物車中移除。",
+    "freeDeliveryAfter": "訂單滿 {price} $ 免費外送"
+  },
+
+  "BucketForm": {
+    "fillForm": "填寫表單",
+    "district": "區域 *",
+    "houseNumber": "門牌號碼 *",
+    "kw": "公寓/辦公室 *",
+    "phoneNumber": "電話號碼 *",
+    "entrance": "入口",
+    "leaveComment": "給外送員的備註（街道名稱等）",
+    "deliveryTime": "外送時間",
+    "chooseAddress": "選擇地址",
+    "addNewAddress": "添加新地址",
+    "createNewAddress": "創建新地址"
+  },
+
+  "BucketPage": {
+    "orders": "您的訂單",
+    "tools": "餐具",
+    "summary": "總計",
+    "price": "商品費用",
+    "totalPrice": "總費用",
+    "submit": "確認並下單",
+    "menuReturn": "返回餐廳列表",
+    "clearTrash": "清空購物車",
+    "yesClear": "清空",
+    "noClear": "否，保留",
+    "restaurantComment": "給餐廳的備註",
+    "restaurantCommentPlaceholder": "您可以添加訂單的特殊要求..."
+  },
+
+  "ProfilePage": {
+    "yourProfile": "您的個人資料",
+    "yourName": "您的姓名",
+    "phoneNumber": "電話號碼",
+    "deliveryAddress": "外送地址",
+    "yourEmail": "您的電子郵件",
+    "chooseAddress": "選擇外送地址",
+
+    "history": "訂單歷史",
+    "info": "在您的個人資料中，您可以查看訂單歷史和當前訂單的狀態。可以在「狀態」欄中追蹤訂單進度。資訊會即時更新。",
+    "emptyHistory": "您還沒有下過訂單",
+    "restaurantName": "餐廳名稱",
+    "dishesName": "菜品名稱",
+    "price": "價格",
+    "deliveryType": "訂單類型",
+    "orderTime": "下單時間",
+    "status": "狀態",
+    "changeAddressSettings": "更改地址設定",
+    "city": "城市",
+    "houseNumber": "門牌 *",
+    "appartmentOffice": "公寓/辦公室 *",
+
+    "dishTitle": "名稱"
+  },
+
+  "Status": {
+    "pending": "待處理",
+    "recieved": "已接收",
+    "sended": "已發送",
+    "delivered": "已送達",
+    "rejected": "已拒絕"
+  },
+
+  "Placeholder": {
+    "email": "輸入您的電子郵件",
+    "password": "密碼",
+    "name": "輸入您的姓名",
+    "phone": "輸入電話號碼",
+    "enterDistrict": "輸入您的區域",
+    "enterCity": "輸入您的城市",
+    "enterHouseNumber": "輸入您的門牌號碼",
+    "enterAppartmentOffice": "輸入公寓/辦公室號碼"
+  },
+
+  "Categories": {
+    "all": "全部",
+    "burgers": "漢堡",
+    "sushi": "壽司",
+    "pasta": "義大利麵",
+    "breakfasts": "早餐",
+    "lunches": "午餐",
+    "dinner": "晚餐"
+  },
+
+  "Zod": {
+    "invalidEmail": "請輸入有效的電子郵件。",
+    "invalidPassLength": "密碼長度至少為 8 個字符。",
+
+    "invalidUsername": "姓名長度至少為 4 個字符。",
+    "invalidPhone": "電話號碼的最後 8 位數字",
+
+    "invalidAddress": "選擇您的外送城市",
+    "invalidDistrict": "輸入您的外送區域",
+    "invalidHome": "輸入您的門牌號碼",
+    "invalidApartment": "輸入您的公寓",
+    "invalidEntrance": "輸入入口（如適用）",
+    "invalidComment": "留下備註以幫助外送員找到您"
+  },
+  "Errors": {
+    "somethingWentWrong": "出了點問題..."
+  },
+
+  "Actions": {
+    "logoutUser": "成功登出",
+    "maxAvailableAmount": "您已添加最大可用數量。",
+    "noDeliveryAvailable": "目前此餐廳不提供外送服務。",
+    "loginToAddAddresses": "請登入以選擇您的外送地址。",
+    "loginToOrder": "下單需要授權。",
+    "chooseRestaurant": "請選擇餐廳",
+    "successOrder": "訂單已成功創建。經理可能會聯繫您確認訂單",
+    "successAddress": "新地址已成功添加",
+    "cooperation": "謝謝，我們會盡快與您聯繫",
+    "feedback": "感謝您的反饋。",
+    "closedRestaurant": "此餐廳已關閉，請選擇其他餐廳。",
+    "notFound": "未找到任何內容",
+    "restaurantNotFound": "出了點問題，也許這家餐廳已經關閉。",
+    "returnToMain": "返回主頁"
+  },
+
+  "Footer": {
+    "coopHeading": "合作",
+    "coopSubHead": "想要擴展您的業務並吸引新客戶嗎？留下請求，我們會盡快與您聯繫。",
+    "coopTellAbout": "簡要介紹您的業務並提供地址 *",
+    "coopRestriction": "注意：目前我們的平台僅在土庫曼納巴德市提供服務。",
+    "coopSend": "發送請求",
+
+    "feedbackHeading": "提交服務反饋",
+    "feedbackSubHeading": "我們重視您對我們服務的關注，並感謝您願意幫助我們改進！",
+    "feedbackSend": "發送請求",
+    "feedbackTitle": "描述問題",
+    "feedbackPlaceholder": "告訴我們您為什麼決定提交反饋"
+  }
+}

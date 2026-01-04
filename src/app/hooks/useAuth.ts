@@ -26,7 +26,7 @@ const useAuth = () => {
         },
       });
 
-      const response = (await data.data.loginUser) as LoginResponse;
+      const response = (await data.data.loginCustomer) as LoginResponse;
 
       //graphql error
       if (data.errors) {
@@ -44,7 +44,8 @@ const useAuth = () => {
     } catch (err: any) {
       if (err) {
         setUserProfile(null);
-        toast(err, "error", { duration: 4000 });
+        const errorMessage = err?.message || "Authentication.loginError";
+        toast(errorMessage, "error", { duration: 4000 });
       }
     }
   };

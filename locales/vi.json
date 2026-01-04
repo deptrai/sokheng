@@ -1,0 +1,218 @@
+{
+  "Index": {
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tìm kiếm nhà hàng...",
+    "chooseCity": "Chọn thành phố của bạn",
+    "city": "Thành phố",
+    "back": "Quay lại",
+    "delivery": "Giao hàng",
+    "deliveryDetailed": "Thời gian giao hàng",
+    "selfCare": "Tự đến lấy",
+    "selfCareTitle": "Địa điểm lấy hàng",
+    "selfCareDetailed": "Thời gian chuẩn bị",
+    "orderType": "Phương thức nhận hàng",
+    "gr": "g",
+    "clear": "Xóa",
+    "bucket": "Giỏ hàng",
+    "toBucket": "Thêm vào giỏ",
+    "noItems": "Bạn chưa thêm gì",
+    "emptyBucket": "Giỏ hàng của bạn đang trống",
+    "add": "Thêm",
+    "phoneNumber": "Số điện thoại",
+    "min": "phút",
+    "now": "Bây giờ",
+    "show": "Hiển thị",
+    "account": "Tài khoản",
+    "profile": "Hồ sơ",
+    "logout": "Đăng xuất",
+    "language": "Ngôn ngữ",
+    "home": "Trang chủ",
+    "categories": "Danh mục",
+    "save": "Lưu",
+    "delete": "Xóa",
+    "cancel": "Hủy",
+    "continue": "Tiếp tục",
+    "noReview": "Ít đánh giá",
+    "description": "Mô tả",
+    "quantity": "Số lượng",
+    "dishes": "Món ăn",
+    "freeDelivery": "Miễn phí giao hàng",
+    "availableLater": "Có sau",
+    "deliveryPrice": "Phí giao hàng",
+    "clearFilters": "Xóa bộ lọc"
+  },
+
+  "Login": {
+    "login": "Đăng nhập",
+    "rules": "Tiếp tục có nghĩa là bạn đồng ý với điều khoản của chúng tôi",
+    "noAccount": "Chưa có tài khoản?",
+    "haveAccount": "Đã có tài khoản?",
+    "register": "Đăng ký",
+    "resetPassword": "Đặt lại mật khẩu",
+    "loginViaEmail": "Đăng nhập bằng email",
+    "registerAccount": "Tạo tài khoản miễn phí bằng email của bạn"
+  },
+
+  "MainPage": {
+    "heading": "Nhà hàng phổ biến",
+
+    "sortBy": "Sắp xếp theo",
+    "whichShow": "Hiển thị cái nào trước?",
+    "trustOne": "Tôi tin bạn",
+    "ratingOne": "Đánh giá cao",
+    "fastOne": "Nhanh",
+    "budgetOne": "Tiết kiệm",
+    "expensiveOne": "Cao cấp",
+    "average": "Trung bình",
+
+    "phone": "Điện thoại",
+    "email": "Email",
+    "address": "Địa chỉ",
+    "workingHours": "Giờ làm việc",
+    "about": "Về chúng tôi",
+    "advertisement": "Quảng cáo",
+    "collab": "Hợp tác",
+    "feedback": "Để lại phản hồi",
+    "rights": "Bản quyền được bảo lưu"
+  },
+
+  "RestaurantPage": {
+    "menu": "Thực đơn",
+    "currentRestaurant": "Nhà hàng hiện tại",
+    "changeRestaurant1": "Tất cả món ăn đã thêm trước đó từ nhà hàng",
+    "changeRestaurant2": "sẽ bị xóa khỏi giỏ hàng.",
+    "freeDeliveryAfter": "Miễn phí giao hàng cho đơn hàng trên {price} $"
+  },
+
+  "BucketForm": {
+    "fillForm": "Điền vào biểu mẫu",
+    "district": "Quận *",
+    "houseNumber": "Số nhà *",
+    "kw": "Căn hộ/Văn phòng *",
+    "phoneNumber": "Số điện thoại *",
+    "entrance": "Lối vào",
+    "leaveComment": "Ghi chú cho người giao hàng (tên đường, v.v.)",
+    "deliveryTime": "Thời gian giao hàng",
+    "chooseAddress": "Chọn địa chỉ",
+    "addNewAddress": "Thêm địa chỉ mới",
+    "createNewAddress": "Tạo địa chỉ mới"
+  },
+
+  "BucketPage": {
+    "orders": "Đơn hàng của bạn",
+    "tools": "Đồ ăn",
+    "summary": "Tổng cộng",
+    "price": "Giá sản phẩm",
+    "totalPrice": "Tổng giá",
+    "submit": "Xác nhận và đặt hàng",
+    "menuReturn": "Quay lại danh sách nhà hàng",
+    "clearTrash": "Xóa giỏ hàng",
+    "yesClear": "Xóa",
+    "noClear": "Không, giữ lại",
+    "restaurantComment": "Ghi chú cho nhà hàng",
+    "restaurantCommentPlaceholder": "Bạn có thể thêm yêu cầu cho đơn hàng của mình..."
+  },
+
+  "ProfilePage": {
+    "yourProfile": "Hồ sơ của bạn",
+    "yourName": "Tên của bạn",
+    "phoneNumber": "Số điện thoại",
+    "deliveryAddress": "Địa chỉ giao hàng",
+    "yourEmail": "Email của bạn",
+    "chooseAddress": "Chọn địa chỉ giao hàng",
+
+    "history": "Lịch sử đơn hàng",
+    "info": "Trong hồ sơ của bạn, bạn có thể kiểm tra lịch sử đơn hàng và trạng thái hiện tại của các yêu cầu đang hoạt động. Trạng thái có thể được theo dõi trong cột 'Trạng thái'. Thông tin được cập nhật theo thời gian thực.",
+    "emptyHistory": "Bạn chưa đặt hàng gì",
+    "restaurantName": "Tên nhà hàng",
+    "dishesName": "Tên món ăn",
+    "price": "Giá",
+    "deliveryType": "Loại đơn hàng",
+    "orderTime": "Thời gian đặt hàng",
+    "status": "Trạng thái",
+    "changeAddressSettings": "Thay đổi cài đặt địa chỉ",
+    "city": "Thành phố",
+    "houseNumber": "Số nhà *",
+    "appartmentOffice": "Căn hộ/Văn phòng *",
+
+    "dishTitle": "Tên món"
+  },
+
+  "Status": {
+    "pending": "Đang chờ",
+    "recieved": "Đã nhận",
+    "sended": "Đã gửi",
+    "delivered": "Đã giao",
+    "rejected": "Đã từ chối"
+  },
+
+  "Placeholder": {
+    "email": "Nhập email của bạn",
+    "password": "Mật khẩu",
+    "name": "Nhập tên của bạn",
+    "phone": "Nhập số điện thoại",
+    "enterDistrict": "Nhập quận của bạn",
+    "enterCity": "Nhập thành phố của bạn",
+    "enterHouseNumber": "Nhập số nhà của bạn",
+    "enterAppartmentOffice": "Nhập số căn hộ/văn phòng"
+  },
+
+  "Categories": {
+    "all": "Tất cả",
+    "burgers": "Burger",
+    "sushi": "Sushi",
+    "pasta": "Mì Ý",
+    "breakfasts": "Bữa sáng",
+    "lunches": "Bữa trưa",
+    "dinner": "Bữa tối"
+  },
+
+  "Zod": {
+    "invalidEmail": "Vui lòng nhập email hợp lệ.",
+    "invalidPassLength": "Mật khẩu phải có ít nhất 8 ký tự.",
+
+    "invalidUsername": "Tên phải có ít nhất 4 ký tự.",
+    "invalidPhone": "8 ký tự cuối của số điện thoại",
+
+    "invalidAddress": "Chọn thành phố giao hàng của bạn",
+    "invalidDistrict": "Nhập quận giao hàng của bạn",
+    "invalidHome": "Nhập số nhà của bạn",
+    "invalidApartment": "Nhập căn hộ của bạn",
+    "invalidEntrance": "Nhập lối vào (nếu có)",
+    "invalidComment": "Để lại ghi chú cho người giao hàng để giúp họ tìm bạn"
+  },
+  "Errors": {
+    "somethingWentWrong": "Đã xảy ra lỗi..."
+  },
+
+  "Actions": {
+    "logoutUser": "Đăng xuất thành công",
+    "maxAvailableAmount": "Bạn đã thêm số lượng tối đa có sẵn.",
+    "noDeliveryAvailable": "Hiện tại, nhà hàng này không cung cấp dịch vụ giao hàng.",
+    "loginToAddAddresses": "Vui lòng đăng nhập để chọn địa chỉ giao hàng của bạn.",
+    "loginToOrder": "Cần xác thực để đặt hàng.",
+    "chooseRestaurant": "Vui lòng chọn nhà hàng",
+    "successOrder": "Đơn hàng đã được đặt thành công. Quản lý có thể liên hệ với bạn để xác nhận",
+    "successAddress": "Địa chỉ mới đã được thêm thành công",
+    "cooperation": "Cảm ơn, chúng tôi sẽ liên hệ với bạn sớm",
+    "feedback": "Cảm ơn phản hồi của bạn.",
+    "closedRestaurant": "Nhà hàng này đã đóng cửa, vui lòng chọn nhà hàng khác.",
+    "notFound": "Không tìm thấy gì",
+    "restaurantNotFound": "Đã xảy ra lỗi, có thể nhà hàng này đã đóng cửa.",
+    "returnToMain": "Quay lại trang chủ"
+  },
+
+  "Footer": {
+    "coopHeading": "Hợp tác",
+    "coopSubHead": "Muốn mở rộng cơ sở của bạn và thu hút khách hàng mới? Để lại yêu cầu và chúng tôi sẽ liên hệ với bạn sớm.",
+    "coopTellAbout": "Mô tả ngắn gọn về cơ sở của bạn và cung cấp địa chỉ *",
+    "coopRestriction": "Lưu ý: Hiện tại, nền tảng của chúng tôi chỉ có sẵn ở thành phố Turkmenabat.",
+    "coopSend": "Gửi yêu cầu",
+
+    "feedbackHeading": "Gửi phản hồi về dịch vụ",
+    "feedbackSubHeading": "Chúng tôi đánh giá cao sự quan tâm của bạn đối với dịch vụ của chúng tôi và cảm ơn bạn đã sẵn sàng giúp chúng tôi cải thiện!",
+    "feedbackSend": "Gửi yêu cầu",
+    "feedbackTitle": "Mô tả vấn đề",
+    "feedbackPlaceholder": "Cho chúng tôi biết tại sao bạn quyết định gửi phản hồi"
+  }
+}

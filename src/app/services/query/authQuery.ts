@@ -18,8 +18,8 @@ mutation CreateUser($userData: mutationUserInput!) {
 `;
 
 export const LOGIN_MUTATION = `
-  mutation LoginUser($email: String!, $password: String!) {
-    loginUser(email: $email, password: $password) {
+  mutation LoginCustomer($email: String!, $password: String!) {
+    loginCustomer(email: $email, password: $password) {
       exp
       token
       user {

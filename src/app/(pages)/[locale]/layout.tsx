@@ -9,6 +9,9 @@ import NextTopLoader from "nextjs-toploader";
 import { routing } from "@/i18n/routing";
 import dynamic from "next/dynamic";
 
+// Telegram Provider Component
+import { TelegramProvider } from "@/app/components/telegram-provider";
+
 //widgets
 import TailwindIndicator from "@/app/components/tailwind-indicator/tailwind-indicator";
 import Footer from "@/app/widgets/Footer";
@@ -48,22 +51,25 @@ export default async function RootLayout({ children, params }: Props) {
         <JotaiProvider>
           <NextIntlClientProvider messages={messages}>
             <TanstackQueryProvider>
-              <Header />
-              <Sidebar />
-              <NextTopLoader
-                color="#FBDB65"
-                showSpinner={false}
-                speed={300}
-                zIndex={3000}
-                initialPosition={0.3}
-                crawlSpeed={400}
-                height={6}
-                easing="ease"
-                crawl={true}
-              />
-              <div className="mt-20 w-full md:mt-16">{children}</div>
-              <Footer />
-              <TailwindIndicator />
+              <TelegramProvider>
+                <Header />
+                <Sidebar />
+                
+                <NextTopLoader
+                  color="#FBDB65"
+                  showSpinner={false}
+                  speed={300}
+                  zIndex={3000}
+                  initialPosition={0.3}
+                  crawlSpeed={400}
+                  height={6}
+                  easing="ease"
+                  crawl={true}
+                />
+                <div className="mt-20 w-full md:mt-16">{children}</div>
+                <Footer />
+                <TailwindIndicator />
+              </TelegramProvider>
             </TanstackQueryProvider>
           </NextIntlClientProvider>
 

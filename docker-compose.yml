@@ -10,9 +10,12 @@ services:
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
     command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev"
+    environment:
+      - npm_config_target_platform=linuxmusl
+      - npm_config_target_arch=arm64
     depends_on:
       - mongo
-      # - postgres
+      - redis
     env_file:
       - .env
 
@@ -20,11 +23,20 @@ services:
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27018:27017"
     command:
       - --storageEngine=wiredTiger
     volumes:
       - data:/data/db
+    logging:
+      driver: none
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
     logging:
       driver: none
 
@@ -39,5 +51,6 @@ services:
 
 volumes:
   data:
+  redis_data:
   # pgdata:
   node_modules:

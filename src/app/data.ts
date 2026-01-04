@@ -1,7 +1,7 @@
 export const LANGUAGES = [
   { title: "English", value: "en" },
-  { title: "Русский", value: "ru" },
-  { title: "Turkmen", value: "tk" },
+  { title: "繁體中文", value: "zh-TW" },
+  { title: "Tiếng Việt", value: "vi" },
 ];
 
 export const BUCKET_INPUTS = [
