@@ -28,9 +28,9 @@ import { BackIcon, LogoIcon } from "@/app/icons";
 import { useAtom, useSetAtom } from "jotai";
 import atoms from "@/app/(pages)/_providers/jotai";
 
-interface Props {}
+interface Props { }
 
-const Index: FC<Props> = ({}) => {
+const Index: FC<Props> = ({ }) => {
   const { back } = useRouter();
 
   const t = useTranslations();
@@ -51,7 +51,7 @@ const Index: FC<Props> = ({}) => {
     if (currentUser) {
       setUserProfile(currentUser);
     }
-  }, [currentUser]);
+  }, [currentUser, setAuth, setUserProfile]);
 
   const isBucketPage = pathName.includes("bucket");
   return (

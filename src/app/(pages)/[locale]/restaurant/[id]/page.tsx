@@ -56,7 +56,7 @@ export default function RestaurantId({ params }: any) {
     if (id) {
       getRestaurant(id);
     }
-  }, [id]);
+  }, [id, getRestaurant]);
 
   return (
     <main className="box-content bg-bg-2">

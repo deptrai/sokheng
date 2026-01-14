@@ -14,6 +14,18 @@ const nextConfig = {
   // Telegram mini app specific
   // distDir: 'out',
   // assetPrefix: undefined,
+  async rewrites() {
+    return [
+      {
+        source: '/:locale/favicon.ico',
+        destination: '/favicon.ico',
+      },
+      {
+        source: '/:locale/favicon-16x16.png',
+        destination: '/favicon-16x16.png',
+      },
+    ];
+  },
 };
 
 export default withNextIntl(withPayload(nextConfig));

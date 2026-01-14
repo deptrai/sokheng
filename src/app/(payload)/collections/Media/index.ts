@@ -62,8 +62,8 @@ const Media: CollectionConfig = {
       },
     },
     mimeTypes: ["image/*"],
-    staticDir: path.resolve(__dirname, "../../../../../public/api/media/file/"),
-    // staticURL: "/media",
+    staticDir: path.resolve(__dirname, "../../../../../public/media"),
+    staticURL: "/media",
   },
 };
 

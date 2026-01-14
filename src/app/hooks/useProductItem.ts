@@ -14,9 +14,9 @@ const useProductItem = (isRestaurantAvailable: boolean = true) => {
   const [selectedItems, setSelectedItems] = useAtom(atoms.selectedItems);
   const setClearModal = useSetAtom(atoms.isClearBucketModal);
 
-  const handleUnavailableWarning = () => {
+  const handleUnavailableWarning = useCallback(() => {
     toast("Actions.closedRestaurant", "warning");
-  };
+  }, [toast]);
 
   const increaseItem = useCallback(
     (itemToIncrease: any) => {
@@ -38,7 +38,7 @@ const useProductItem = (isRestaurantAvailable: boolean = true) => {
         return { ...prev, dishes: increasedCount };
       });
     },
-    [isRestaurantAvailable],
+    [isRestaurantAvailable, handleUnavailableWarning, setSelectedItems, toast],
   );
 
   const decreaseItem = useCallback(
@@ -86,7 +86,7 @@ const useProductItem = (isRestaurantAvailable: boolean = true) => {
         }));
       }
     },
-    [selectedItems, isRestaurantAvailable, setClearModal, setSelectedItems, increaseItem],
+    [selectedItems, isRestaurantAvailable, setClearModal, setSelectedItems, increaseItem, handleUnavailableWarning],
   );
 
   const toggleDelivery = useCallback(

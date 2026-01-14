@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import { PlusIcon } from "@/app/icons";
 
@@ -16,10 +17,12 @@ const Index: FC<Props> = ({ dish, isDishDisabled, addItem, btnTitle, handleDish 
   return (
     <div className="relative m-1 flex max-w-full flex-col overflow-hidden rounded-[14px] bg-bg-1 p-3 md:p-2">
       <div className=" relative mb-2.5 h-44 w-full overflow-hidden rounded-[14px] " onClick={handleDish}>
-        <img
-          className="h-full w-full cursor-pointer object-cover duration-200 hover:brightness-105"
+        <Image
+          fill
+          className="cursor-pointer object-cover duration-200 hover:brightness-105"
           src={dish.image?.url || DEFAULT_IMAGE_PATH}
           alt={dish.image?.alt || "image"}
+          sizes="(max-width: 768px) 100vw, 25vw"
         />
       </div>
       <div className="mb-2.5 h-fit font-medium">

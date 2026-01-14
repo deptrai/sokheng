@@ -49,7 +49,7 @@ const Restaurants: CollectionConfig = {
       label: "Restaurant name",
       required: true,
       access: {
-        update: admins,
+        update: ({ req }) => checkRole(["admin"], req.user),
       },
       type: "text",
     },
@@ -111,7 +111,7 @@ const Restaurants: CollectionConfig = {
           name: "closeTime",
           label: "Close time",
           options: CLOSE_HOURS,
-          required: true,
+          required: false,
           type: "select",
         },
       ],

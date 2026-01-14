@@ -103,7 +103,7 @@ export default function Bucket() {
       router.replace("/");
       toast("Index.emptyBucket", "info");
     }
-  }, [selectedItems?.dishes]);
+  }, [selectedItems?.dishes, router, toast]);
 
   useEffect(() => {
     if (restId && !restaurantInfo) {
@@ -111,7 +111,7 @@ export default function Bucket() {
       getRestaurant(restId);
       queryClient.invalidateQueries({ queryKey: ["currentUser"] });
     }
-  }, [restId]);
+  }, [restId, getRestaurant, queryClient, restaurantInfo]);
 
   return (
     <main className="min-h-[calc(100vh-313px)] w-full bg-bg-2 px-10 py-12 xl:p-8 md:px-4 md:py-6 sm:px-3 sm:py-4">

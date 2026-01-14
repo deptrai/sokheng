@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import BannerItems from "@/app/components/restaurant-page-ui/BannerItems";
 
@@ -14,10 +15,13 @@ const Index: FC<Props> = ({ bannerImageUrl, bannerInfo, t }) => {
   return (
     <div className="relative z-[11] h-80 max-w-full overflow-hidden rounded-2xl md:h-60">
       <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-tr from-black/20 to-black/0"></div>
-      <img
-        className="absolute left-0 top-0 z-0 h-full w-full object-cover  object-top"
+      <Image
+        fill
+        className="z-0 object-cover object-top"
         src={bannerImageUrl || DEFAULT_BANNER_PATH}
         alt="banner image"
+        priority
+        sizes="100vw"
       />
 
       <div className="absolute bottom-10 left-9 z-20 md:bottom-6 md:left-5">

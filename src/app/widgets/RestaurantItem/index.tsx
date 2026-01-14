@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import { Link } from "@/i18n/routing";
 
@@ -34,10 +35,13 @@ const Index: FC<Props> = ({ item, isDeliveryFree, t }) => {
     <div className="relative inline-block px-4 pb-5 xl:px-2">
       <Link href={`/restaurant/${item.id}`} className="group focus:outline-none">
         <figure className="relative mb-2 h-full max-h-52 min-h-52 w-full cursor-pointer overflow-hidden rounded-[14px] outline-none ring-text-2 ring-offset-2 group-focus-visible:ring-2">
-          <img
-            className="absolute h-full w-full bg-gray-2 object-cover"
+          <Image
+            fill
+            className="object-cover bg-gray-2"
             src={item.bannerImage?.url || DEFAULT_IMAGE_PATH}
             alt={item.bannerImage?.alt || "image"}
+            priority={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           {isDeliveryFree && (
             <div className="absolute left-2 top-2 z-10 flex items-center space-x-1 rounded-full bg-white/80 px-1 py-[3px] pr-1.5 text-black">

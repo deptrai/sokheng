@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Image from "next/image";
 
 import IncreseDecrease from "@/app/components/shared-ui/IncreaseDecrease";
 
@@ -14,7 +15,13 @@ const Index: FC<Props> = ({ item, increaseItem, decreaseItem }) => {
   return (
     <div className="flex items-center space-x-2">
       <div className="relative h-16 w-16 overflow-hidden rounded-xl">
-        <img className="h-full w-full object-cover" src={item.image?.url || DEFAULT_IMAGE_PATH} alt="dish photo" />
+        <Image
+          fill
+          className="object-cover"
+          src={item.image?.url || DEFAULT_IMAGE_PATH}
+          alt="dish photo"
+          sizes="64px"
+        />
       </div>
 
       <div className="flex-1 self-start">

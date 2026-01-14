@@ -7,7 +7,7 @@ import { USER_TOKEN } from "@/app/shared/constants";
 // Custom middleware
 const middleware = createMiddleware(routing);
 
-export default async function (req: any) {
+export default async function customMiddleware(req: any) {
   const { pathname } = req.nextUrl;
 
   if (pathname.includes("/admin")) {
@@ -25,5 +25,5 @@ export default async function (req: any) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/public|_next/image|favicon.ico ).*)", "/(vi|zh-TW|en)/:path*"],
+  matcher: ["/((?!api|_next/static|_next/public|_next/image|favicon.ico|media).*)", "/(vi|zh-TW|en)/:path*"],
 };

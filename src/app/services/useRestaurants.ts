@@ -67,7 +67,10 @@ export const useGetRestaurantById = (schema?: string) => {
   });
 
   const withCategories: any = data?.dishes?.reduce((acc: any, dish) => {
-    let category = dish.categories?.category || "Others";
+    // Handle both object and array structures for categories
+    let category = typeof dish.categories === 'object' && !Array.isArray(dish.categories)
+      ? dish.categories?.category
+      : dish.categories?.[0]?.category || "Others";
 
     let categoryObj = acc.find((item: any) => item.category === category);
 

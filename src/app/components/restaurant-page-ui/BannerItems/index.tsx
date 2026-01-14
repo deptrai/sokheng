@@ -13,7 +13,8 @@ interface Props {
 const Index: FC<Props> = ({ bannerInfo, t }) => {
   const { title, deliveryTime, address, workingHours } = bannerInfo;
 
-  const convertTimeFormat = (timeString: string) => {
+  const convertTimeFormat = (timeString: string | undefined | null) => {
+    if (!timeString) return "N/A";
     return timeString.slice(1, 3) + ":" + timeString.slice(3);
   };
 
@@ -49,7 +50,7 @@ const Index: FC<Props> = ({ bannerInfo, t }) => {
             <div>
               {t("MainPage.workingHours")}:{" "}
               <span className="font-normal">
-                {convertTimeFormat(workingHours.openTime)} - {convertTimeFormat(workingHours.closeTime)}
+                {convertTimeFormat(workingHours?.openTime)} - {convertTimeFormat(workingHours?.closeTime)}
               </span>
             </div>
             <div className="line-clamp-[10]">
