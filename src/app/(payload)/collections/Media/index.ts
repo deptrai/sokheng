@@ -42,6 +42,15 @@ const Media: CollectionConfig = {
     },
   ],
   hooks: {
+    afterRead: [
+      ({ doc }) => {
+        // Force static URL instead of API-based URL
+        if (doc.filename) {
+          doc.url = `/media/${doc.filename}`;
+        }
+        return doc;
+      },
+    ],
     beforeValidate: [
       ({ data, req }) => {
         if (req.user && data && !data.createdBy) {
