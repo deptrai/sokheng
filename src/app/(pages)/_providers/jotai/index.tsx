@@ -7,11 +7,13 @@ import { DISHES, LANGUAGE, USER_PROFILE, CITY } from "@/app/shared/constants";
 
 const isClearBucketModal = atom(false);
 const isSidebarOpen = atom(false);
-const isAuth = atom(false);
+const userProfile = atomWithStorage<UserInfo | null>(USER_PROFILE, null);
+// Derive isAuth from userProfile - if userProfile exists, user is authenticated
+const isAuth = atom((get) => get(userProfile) !== null);
 const query = atom("");
 
 const selectedLanguage = atomWithStorage(LANGUAGE, "en");
-const selectedCity = atomWithStorage(CITY, "Turkmenabat");
+const selectedCity = atomWithStorage(CITY, "Phnom Penh");
 const selectedItems = atomWithStorage<RestaurantWithDishesInfo>(DISHES, DEFAULT_RESTAURANT_INFO, {
   getItem(key, initialValue) {
     const storedVal = localStorage.getItem(key);
@@ -34,7 +36,6 @@ const selectedItems = atomWithStorage<RestaurantWithDishesInfo>(DISHES, DEFAULT_
     localStorage.removeItem(key);
   },
 });
-const userProfile = atomWithStorage<UserData | null>(USER_PROFILE, null);
 
 const atoms = {
   isSidebarOpen,

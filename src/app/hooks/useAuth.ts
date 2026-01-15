@@ -26,19 +26,25 @@ const useAuth = () => {
         },
       });
 
-      const response = (await data.data.loginCustomer) as LoginResponse;
+      // Axios unwraps to response.data, GraphQL has another data layer
+      // So we need data.data.loginCustomer
+      const response = data.data?.loginCustomer as LoginResponse;
 
       //graphql error
-      if (data.errors) {
+      if (data.errors || !response) {
         setUserProfile(null);
-        throw new Error(data.errors[0].message);
+        const errorMsg = data.errors?.[0]?.message || "Authentication.loginError";
+        throw new Error(errorMsg);
       }
 
       //if login success
       if (response?.token) {
-        setAuth(true);
         setUserProfile(response?.user);
-        location.reload();
+        toast("Authentication.loginSuccess", "success", { duration: 2000 });
+        // Reload page to update UI
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       }
       return response;
     } catch (err: any) {

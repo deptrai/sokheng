@@ -7,11 +7,8 @@ const client = new MongoClient(uri);
 
 // Sample data
 const cities = [
-  { title: 'Turkmenabat' },
-  { title: 'Ashgabat' },
-  { title: 'Turkmenbashi' },
-  { title: 'Mary' },
-  { title: 'Dashoguz' }
+  { title: 'Phnom Penh' },
+  { title: 'Sihanoukville' }
 ];
 
 const categories = [
@@ -23,6 +20,36 @@ const categories = [
   { category: 'Fast Food', value: 'fast-food', type: 'restaurant', order: 1 },
   { category: 'Fine Dining', value: 'fine-dining', type: 'restaurant', order: 2 },
   { category: 'Cafe', value: 'cafe', type: 'restaurant', order: 3 }
+];
+
+const mediaItems = [
+  {
+    alt: 'Delicious Pizza',
+    filename: 'sokheng_beef_dish.png',
+    mimeType: 'image/png',
+    filesize: 843858,
+    width: 1024,
+    height: 1024,
+    url: '/media/sokheng_beef_dish.png'
+  },
+  {
+    alt: 'Juicy Burger',
+    filename: 'sokheng_chicken_dish.png',
+    mimeType: 'image/png',
+    filesize: 877006,
+    width: 1024,
+    height: 1024,
+    url: '/media/sokheng_chicken_dish.png'
+  },
+  {
+    alt: 'Fresh Sushi',
+    filename: 'sokheng_salad_appetizer.png',
+    mimeType: 'image/png',
+    filesize: 883460,
+    width: 1024,
+    height: 1024,
+    url: '/media/sokheng_salad_appetizer.png'
+  }
 ];
 
 const restaurants = [
@@ -172,11 +199,22 @@ async function seedDatabase() {
     await db.collection('restaurants').deleteMany({});
     await db.collection('dishes').deleteMany({});
     await db.collection('orders').deleteMany({});
+    await db.collection('media').deleteMany({});
 
     // Insert cities
     console.log('Seeding cities...');
     const cityResult = await db.collection('cities').insertMany(cities);
     const cityIds = cityResult.insertedIds;
+
+    // Insert Media
+    console.log('Seeding media...');
+    const mediaWithTimestamps = mediaItems.map(item => ({
+      ...item,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }));
+    const mediaResult = await db.collection('media').insertMany(mediaWithTimestamps);
+    const mediaIds = mediaResult.insertedIds;
 
     // Insert categories
     console.log('Seeding categories...');
@@ -207,7 +245,8 @@ async function seedDatabase() {
     const restaurantsWithRelations = restaurants.map((restaurant, index) => ({
       ...restaurant,
       relatedToUser: customerIds[2], // Restaurant owner
-      cities: [cityIds[0]], // Turkmenabat
+      cities: [cityIds[0]], // Phnom Penh matches first city
+      bannerImage: mediaIds[index % 3], // Assign media image - FIXED FIELD NAME
       categories: [
         categoryIds[5], // Fast Food
         categoryIds[6]  // Fine Dining
@@ -223,7 +262,7 @@ async function seedDatabase() {
     const dishesWithRelations = dishes.map((dish, index) => {
       let restaurantIndex = 0;
       let categoryIndex = 0;
-      
+
       if (index < 2) {
         restaurantIndex = 0; // Pizza Palace
         categoryIndex = 0; // Pizza
@@ -251,7 +290,7 @@ async function seedDatabase() {
     console.log('Seeding orders...');
     const orders = [
       {
-        city: 'Turkmenabat',
+        city: 'Phnom Penh',
         district: 'Central',
         apartment: '5A',
         houseNumber: '123',
@@ -273,7 +312,7 @@ async function seedDatabase() {
         updatedAt: new Date()
       },
       {
-        city: 'Turkmenabat',
+        city: 'Phnom Penh',
         district: 'North',
         apartment: '10B',
         houseNumber: '456',

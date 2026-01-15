@@ -15,7 +15,7 @@ const Index: FC<Props> = ({ languageTitle, handleChange }) => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button className="flex min-w-14 cursor-pointer flex-col items-center space-y-1 rounded-md text-sm text-text-2 md:hidden">
+        <button className="flex min-w-14 cursor-pointer flex-col items-center space-y-1 rounded-md text-sm text-text-2">
           <EarthIcon width={20} height={20} />
           <p>{languageTitle}</p>
         </button>

@@ -1,8 +1,15 @@
-export const LANGUAGES = [
-  { title: "English", value: "en" },
-  { title: "繁體中文", value: "zh-TW" },
-  { title: "Tiếng Việt", value: "vi" },
-];
+import { locales } from "@/i18n/routing";
+
+const LANGUAGE_LABELS: Record<typeof locales[number], string> = {
+  en: "English",
+  vi: "Tiếng Việt",
+  km: "ភាសាខ្មែរ", // Khmer
+};
+
+export const LANGUAGES = locales.map((locale) => ({
+  title: LANGUAGE_LABELS[locale],
+  value: locale,
+}));
 
 export const BUCKET_INPUTS = [
   {

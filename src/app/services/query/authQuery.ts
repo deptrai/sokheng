@@ -2,11 +2,8 @@ const USER_INFO = `
   id
   name
   phone
-  addresses {
-    district
-    houseNumber
-    apartment
-  }
+  email
+  roles
 `;
 
 export const REGISTER_MUTATION = `

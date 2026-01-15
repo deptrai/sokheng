@@ -1,36 +1,28 @@
 import { usePathname, useRouter } from "@/i18n/routing";
-import atoms from "@/app/(pages)/_providers/jotai";
-import { useAtom } from "jotai";
 import { useLocale } from "next-intl";
-import { useEffect, useCallback } from "react";
+import { useCallback } from "react";
 
 const useChangeLanguage = () => {
-  const [selectedLanguage, setSelectedLanguage] = useAtom(atoms.selectedLanguage);
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale() as I18N;
 
-  const handleChange = useCallback((locale: I18N) => {
-    if (locale !== selectedLanguage) {
-      setSelectedLanguage(locale);
-      router.replace(pathname, { locale });
+  const handleChange = useCallback((newLocale: I18N) => {
+    if (newLocale !== locale) {
+      router.replace(pathname, { locale: newLocale });
     }
-  }, [selectedLanguage, pathname, router, setSelectedLanguage]);
-
-  useEffect(() => {
-    handleChange(locale);
-  }, [handleChange, locale]);
+  }, [locale, pathname, router]);
 
   const languageTitle = (() => {
-    switch (selectedLanguage) {
-      case "tk": {
-        return "Turkmen";
-      }
-      case "en": {
+    switch (locale) {
+      case "en":
         return "English";
-      }
+      case "vi":
+        return "Tiếng Việt";
+      case "km":
+        return "ភាសាខ្មែរ"; // Khmer
       default:
-        return "Русский";
+        return "English";
     }
   })();
 

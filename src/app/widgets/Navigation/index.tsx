@@ -25,7 +25,7 @@ import SidebarTrigger from "@/app/components/navigation-ui/SidebarItems";
 import { BackIcon, LogoIcon } from "@/app/icons";
 
 //jotai
-import { useAtom, useSetAtom } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import atoms from "@/app/(pages)/_providers/jotai";
 
 interface Props { }
@@ -38,7 +38,7 @@ const Index: FC<Props> = ({ }) => {
 
   const { handleChange, languageTitle } = useChangeLanguage();
 
-  const [isAuth, setAuth] = useAtom(atoms.isAuth);
+  const isAuth = useAtomValue(atoms.isAuth);
   const setUserProfile = useSetAtom(atoms.userProfile);
   const handleQuery = useSetAtom(atoms.query);
 
@@ -47,11 +47,10 @@ const Index: FC<Props> = ({ }) => {
   const { cities } = useGetCities();
 
   useEffect(() => {
-    setAuth(Boolean(currentUser));
     if (currentUser) {
       setUserProfile(currentUser);
     }
-  }, [currentUser, setAuth, setUserProfile]);
+  }, [currentUser, setUserProfile]);
 
   const isBucketPage = pathName.includes("bucket");
   return (

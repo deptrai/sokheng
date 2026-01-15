@@ -41,7 +41,6 @@
     "deliveryPrice": "Phí giao hàng",
     "clearFilters": "Xóa bộ lọc"
   },
-
   "Login": {
     "login": "Đăng nhập",
     "rules": "Tiếp tục có nghĩa là bạn đồng ý với điều khoản của chúng tôi",
@@ -52,10 +51,8 @@
     "loginViaEmail": "Đăng nhập bằng email",
     "registerAccount": "Tạo tài khoản miễn phí bằng email của bạn"
   },
-
   "MainPage": {
     "heading": "Nhà hàng phổ biến",
-
     "sortBy": "Sắp xếp theo",
     "whichShow": "Hiển thị cái nào trước?",
     "trustOne": "Tôi tin bạn",
@@ -64,7 +61,6 @@
     "budgetOne": "Tiết kiệm",
     "expensiveOne": "Cao cấp",
     "average": "Trung bình",
-
     "phone": "Điện thoại",
     "email": "Email",
     "address": "Địa chỉ",
@@ -75,7 +71,6 @@
     "feedback": "Để lại phản hồi",
     "rights": "Bản quyền được bảo lưu"
   },
-
   "RestaurantPage": {
     "menu": "Thực đơn",
     "currentRestaurant": "Nhà hàng hiện tại",
@@ -83,7 +78,6 @@
     "changeRestaurant2": "sẽ bị xóa khỏi giỏ hàng.",
     "freeDeliveryAfter": "Miễn phí giao hàng cho đơn hàng trên {price} $"
   },
-
   "BucketForm": {
     "fillForm": "Điền vào biểu mẫu",
     "district": "Quận *",
@@ -97,7 +91,6 @@
     "addNewAddress": "Thêm địa chỉ mới",
     "createNewAddress": "Tạo địa chỉ mới"
   },
-
   "BucketPage": {
     "orders": "Đơn hàng của bạn",
     "tools": "Đồ ăn",
@@ -112,7 +105,6 @@
     "restaurantComment": "Ghi chú cho nhà hàng",
     "restaurantCommentPlaceholder": "Bạn có thể thêm yêu cầu cho đơn hàng của mình..."
   },
-
   "ProfilePage": {
     "yourProfile": "Hồ sơ của bạn",
     "yourName": "Tên của bạn",
@@ -120,7 +112,6 @@
     "deliveryAddress": "Địa chỉ giao hàng",
     "yourEmail": "Email của bạn",
     "chooseAddress": "Chọn địa chỉ giao hàng",
-
     "history": "Lịch sử đơn hàng",
     "info": "Trong hồ sơ của bạn, bạn có thể kiểm tra lịch sử đơn hàng và trạng thái hiện tại của các yêu cầu đang hoạt động. Trạng thái có thể được theo dõi trong cột 'Trạng thái'. Thông tin được cập nhật theo thời gian thực.",
     "emptyHistory": "Bạn chưa đặt hàng gì",
@@ -134,10 +125,8 @@
     "city": "Thành phố",
     "houseNumber": "Số nhà *",
     "appartmentOffice": "Căn hộ/Văn phòng *",
-
     "dishTitle": "Tên món"
   },
-
   "Status": {
     "pending": "Đang chờ",
     "recieved": "Đã nhận",
@@ -145,7 +134,6 @@
     "delivered": "Đã giao",
     "rejected": "Đã từ chối"
   },
-
   "Placeholder": {
     "email": "Nhập email của bạn",
     "password": "Mật khẩu",
@@ -156,7 +144,6 @@
     "enterHouseNumber": "Nhập số nhà của bạn",
     "enterAppartmentOffice": "Nhập số căn hộ/văn phòng"
   },
-
   "Categories": {
     "all": "Tất cả",
     "burgers": "Burger",
@@ -166,14 +153,11 @@
     "lunches": "Bữa trưa",
     "dinner": "Bữa tối"
   },
-
   "Zod": {
     "invalidEmail": "Vui lòng nhập email hợp lệ.",
     "invalidPassLength": "Mật khẩu phải có ít nhất 8 ký tự.",
-
     "invalidUsername": "Tên phải có ít nhất 4 ký tự.",
     "invalidPhone": "8 ký tự cuối của số điện thoại",
-
     "invalidAddress": "Chọn thành phố giao hàng của bạn",
     "invalidDistrict": "Nhập quận giao hàng của bạn",
     "invalidHome": "Nhập số nhà của bạn",
@@ -184,7 +168,6 @@
   "Errors": {
     "somethingWentWrong": "Đã xảy ra lỗi..."
   },
-
   "Actions": {
     "logoutUser": "Đăng xuất thành công",
     "maxAvailableAmount": "Bạn đã thêm số lượng tối đa có sẵn.",
@@ -201,14 +184,12 @@
     "restaurantNotFound": "Đã xảy ra lỗi, có thể nhà hàng này đã đóng cửa.",
     "returnToMain": "Quay lại trang chủ"
   },
-
   "Footer": {
     "coopHeading": "Hợp tác",
     "coopSubHead": "Muốn mở rộng cơ sở của bạn và thu hút khách hàng mới? Để lại yêu cầu và chúng tôi sẽ liên hệ với bạn sớm.",
     "coopTellAbout": "Mô tả ngắn gọn về cơ sở của bạn và cung cấp địa chỉ *",
-    "coopRestriction": "Lưu ý: Hiện tại, nền tảng của chúng tôi chỉ có sẵn ở thành phố Turkmenabat.",
+    "coopRestriction": "Lưu ý: Hiện tại, nền tảng của chúng tôi chỉ có sẵn ở thành phố Phnom Penh.",
     "coopSend": "Gửi yêu cầu",
-
     "feedbackHeading": "Gửi phản hồi về dịch vụ",
     "feedbackSubHeading": "Chúng tôi đánh giá cao sự quan tâm của bạn đối với dịch vụ của chúng tôi và cảm ơn bạn đã sẵn sàng giúp chúng tôi cải thiện!",
     "feedbackSend": "Gửi yêu cầu",
