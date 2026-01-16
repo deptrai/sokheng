@@ -5,7 +5,7 @@ const Index = ({ count, className }: { count: number; className?: string }) => {
     >
       <div className="relative flex items-center justify-center">
         {Boolean(count) && (
-          <span className="duration-[2s] absolute inline-flex animate-ping rounded-full bg-info px-2.5 py-2.5 opacity-60"></span>
+          <span className="duration-\[2s\] absolute inline-flex animate-ping rounded-full bg-info px-2.5 py-2.5 opacity-60"></span>
         )}
         <span className="relative inline-flex h-full w-full rounded-full text-center text-xs text-black">{count}</span>
       </div>
