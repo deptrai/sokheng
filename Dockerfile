@@ -6,7 +6,14 @@ FROM --platform=linux/amd64 node:18-alpine AS base
 FROM base AS deps
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
 # Install sharp dependencies for Alpine
-RUN apk add --no-cache libc6-compat python3 make g++ vips-dev
+RUN apk add --no-cache \
+  libc6-compat \
+  python3 \
+  make \
+  g++ \
+  vips-dev \
+  pkgconfig
+
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
@@ -18,10 +25,20 @@ RUN \
   else echo "Lockfile not found." && exit 1; \
   fi
 
-# Rebuild sharp for Alpine Linux
-RUN if [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm rebuild sharp; \
-  elif [ -f yarn.lock ]; then yarn rebuild sharp; \
-  elif [ -f package-lock.json ]; then npm rebuild sharp; \
+# Rebuild sharp for Alpine Linux with proper flags
+RUN if [ -f pnpm-lock.yaml ]; then \
+  corepack enable pnpm && \
+  npm_config_sharp_binary_host="https://github.com/lovell/sharp-libvips/releases/download" \
+  npm_config_sharp_libvips_binary_host="https://github.com/lovell/sharp-libvips/releases/download" \
+  pnpm rebuild sharp --verbose; \
+  elif [ -f yarn.lock ]; then \
+  npm_config_sharp_binary_host="https://github.com/lovell/sharp-libvips/releases/download" \
+  npm_config_sharp_libvips_binary_host="https://github.com/lovell/sharp-libvips/releases/download" \
+  yarn rebuild sharp --verbose; \
+  elif [ -f package-lock.json ]; then \
+  npm_config_sharp_binary_host="https://github.com/lovell/sharp-libvips/releases/download" \
+  npm_config_sharp_libvips_binary_host="https://github.com/lovell/sharp-libvips/releases/download" \
+  npm rebuild sharp --verbose; \
   fi
 
 
