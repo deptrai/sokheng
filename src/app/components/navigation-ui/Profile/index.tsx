@@ -25,15 +25,13 @@ const Index: FC<Props> = ({ t }) => {
   const { push } = useRouter();
   const pathname = usePathname();
   const { logout } = useAuth();
-  const setAuth = useSetAtom(atoms.isAuth);
 
   const handleToProfile = () => {
     push("/profile");
   };
 
   const handleLogout = () => {
-    logout();
-    setAuth(false);
+    logout(); // This will set userProfile to null, which automatically updates isAuth
     localStorage.removeItem(USER_PROFILE);
     if (pathname.includes("/profile")) {
       push("/");

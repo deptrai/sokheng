@@ -15,7 +15,14 @@
     "format": "npx prettier --write .",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "seed:all": "node scripts/seed-via-payload-api.js",
+    "seed:users": "tsx scripts/seed-users.ts --all",
+    "seed:customer": "tsx scripts/seed-users.ts --customer",
+    "seed:admin": "tsx scripts/seed-users.ts --admin",
+    "seed:sokheng": "tsx scripts/seed-sokheng-menu.ts",
+    "seed:vietnamese": "tsx scripts/seed-vietnamese.ts",
+    "db:check": "tsx scripts/check-db.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -78,7 +85,8 @@
     "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.3.0",
     "ts-jest": "^29.4.6",
-    "typescript": "5.7.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"

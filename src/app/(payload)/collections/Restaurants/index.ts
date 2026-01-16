@@ -102,17 +102,15 @@ const Restaurants: CollectionConfig = {
       fields: [
         {
           name: "openTime",
-          label: "Open time",
-          options: OPEN_HOURS,
+          label: "Open time (HH:MM format, e.g., 08:00)",
           required: true,
-          type: "select",
+          type: "text",
         },
         {
           name: "closeTime",
-          label: "Close time",
-          options: CLOSE_HOURS,
+          label: "Close time (HH:MM format, e.g., 22:00)",
           required: false,
-          type: "select",
+          type: "text",
         },
       ],
       label: "Working hours",

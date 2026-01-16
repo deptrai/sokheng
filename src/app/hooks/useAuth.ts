@@ -10,7 +10,6 @@ import useToast from "./useToast";
 import { DISHES } from "../shared/constants";
 
 const useAuth = () => {
-  const setAuth = useSetAtom(atoms.isAuth);
   const setUserProfile = useSetAtom(atoms.userProfile);
 
   const toast = useToast();

@@ -72,7 +72,7 @@ const Media: CollectionConfig = {
     },
     mimeTypes: ["image/*"],
     staticDir: path.resolve(__dirname, "../../../../../public/media"),
-    staticURL: "/media",
+    // Note: staticURL is set dynamically in afterRead hook (line 49)
   },
 };
 

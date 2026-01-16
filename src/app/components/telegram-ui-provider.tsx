@@ -2,16 +2,9 @@
 
 import { useEffect } from 'react';
 
-// Extend Window interface for Telegram WebApp
-declare global {
-  interface Window {
-    Telegram?: {
-      WebApp?: any;
-    };
-  }
-}
+// Window.Telegram type is defined in src/types/telegram-webapp.d.ts
 
-export function TelegramProvider({ children }: { children: React.ReactNode }) {
+export function TelegramUIProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Only run in browser and when Telegram WebApp is available
     if (typeof window === 'undefined' || !window.Telegram?.WebApp) {
@@ -33,15 +26,16 @@ export function TelegramProvider({ children }: { children: React.ReactNode }) {
       }
 
       // Handle theme changes
-      webApp.onEvent('themeChanged', () => {
-        const newTheme = webApp.themeParams;
-        if (newTheme.bg_color) {
-          document.body.style.backgroundColor = newTheme.bg_color;
-        }
-        if (newTheme.text_color) {
-          document.body.style.color = newTheme.text_color;
-        }
-      });
+      // TODO: Add onEvent to TelegramWebApp type definition
+      // webApp.onEvent('themeChanged', () => {
+      //   const newTheme = webApp.themeParams;
+      //   if (newTheme.bg_color) {
+      //     document.body.style.backgroundColor = newTheme.bg_color;
+      //   }
+      //   if (newTheme.text_color) {
+      //     document.body.style.color = newTheme.text_color;
+      //   }
+      // });
 
       console.log('Telegram Web App initialized', webApp.initDataUnsafe.user);
     } catch (error) {

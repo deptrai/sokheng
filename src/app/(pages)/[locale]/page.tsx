@@ -22,6 +22,7 @@ export default function Home() {
   const t = useTranslations();
 
   const [query, setQuery] = useAtom(atoms.query);
+  const [selectedCity] = useAtom(atoms.selectedCity);
   const [filters, setFilters] = useState<Filters>(defaultFilters);
 
   const clearFilters = () => {
@@ -34,7 +35,10 @@ export default function Home() {
   };
 
   //use "fetchNextPage" for infinite scroll
-  const { isFetchingNextPage, filteredRestaurants, fetchNextPage, isLoading } = useGetRestaurantsQuery(filters, query);
+  const { isFetchingNextPage, filteredRestaurants, fetchNextPage, isLoading } = useGetRestaurantsQuery(
+    { ...filters, city: selectedCity },
+    query
+  );
 
   const { categories } = useGetCategories();
 

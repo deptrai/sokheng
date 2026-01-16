@@ -13,7 +13,7 @@ const isAuth = atom((get) => get(userProfile) !== null);
 const query = atom("");
 
 const selectedLanguage = atomWithStorage(LANGUAGE, "en");
-const selectedCity = atomWithStorage(CITY, "Phnom Penh");
+const selectedCity = atomWithStorage(CITY, "696840766b35e5361bfaa4a8"); // Phnom Penh ID
 const selectedItems = atomWithStorage<RestaurantWithDishesInfo>(DISHES, DEFAULT_RESTAURANT_INFO, {
   getItem(key, initialValue) {
     const storedVal = localStorage.getItem(key);

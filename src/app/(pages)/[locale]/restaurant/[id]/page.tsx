@@ -36,10 +36,21 @@ export default function RestaurantId({ params }: any) {
 
   const { restaurantInfo, withCategories, getRestaurant, isLoading } = useGetRestaurantById();
 
-  const isRestaurantAvailable = isRestaurantOpen(
+  const isRestaurantAvailable = !restaurantInfo?.isClosed && isRestaurantOpen(
     restaurantInfo?.workingHours?.openTime,
     restaurantInfo?.workingHours?.closeTime,
   );
+
+  console.log('[Restaurant Detail] isRestaurantAvailable check:', {
+    isClosed: restaurantInfo?.isClosed,
+    openTime: restaurantInfo?.workingHours?.openTime,
+    closeTime: restaurantInfo?.workingHours?.closeTime,
+    isRestaurantOpen: isRestaurantOpen(
+      restaurantInfo?.workingHours?.openTime,
+      restaurantInfo?.workingHours?.closeTime,
+    ),
+    final: isRestaurantAvailable
+  });
 
   const { addItem, clearItems, handleUnavailableWarning } = useProductItem(isRestaurantAvailable);
 

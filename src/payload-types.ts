@@ -47,12 +47,12 @@ export interface Config {
   globalsSelect: {};
   locale: null;
   user:
-    | (User & {
-        collection: 'users';
-      })
-    | (Customer & {
-        collection: 'customers';
-      });
+  | (User & {
+    collection: 'users';
+  })
+  | (Customer & {
+    collection: 'customers';
+  });
   jobs: {
     tasks: unknown;
     workflows: unknown;
@@ -150,6 +150,7 @@ export interface Customer {
   id: string;
   name?: string | null;
   phone?: string | null;
+  telegramId?: string | null; // Added for Telegram Mini App authentication
   restaurant?: (string | Restaurant)[] | null;
   isBlocked?: boolean | null;
   roles?: ('admin' | 'author' | 'guest')[] | null;
@@ -223,12 +224,12 @@ export interface Order {
   commentToRestaurant?: string | null;
   isDelivery: boolean;
   dishes?:
-    | {
-        dish?: (string | null) | Dish;
-        quantity?: number | null;
-        id?: string | null;
-      }[]
-    | null;
+  | {
+    dish?: (string | null) | Dish;
+    quantity?: number | null;
+    id?: string | null;
+  }[]
+  | null;
   restaurantID: string;
   orderedByUser: string;
   updatedAt: string;
@@ -243,15 +244,15 @@ export interface User {
   name: string;
   phone: string;
   addresses?:
-    | {
-        city?: string | null;
-        district: string;
-        apartment: string;
-        houseNumber: string;
-        entrance?: string | null;
-        id?: string | null;
-      }[]
-    | null;
+  | {
+    city?: string | null;
+    district: string;
+    apartment: string;
+    houseNumber: string;
+    entrance?: string | null;
+    id?: string | null;
+  }[]
+  | null;
   roles?: 'user'[] | null;
   updatedAt: string;
   createdAt: string;
@@ -284,52 +285,52 @@ export interface FeedbackAndCooperation {
 export interface PayloadLockedDocument {
   id: string;
   document?:
-    | ({
-        relationTo: 'restaurants';
-        value: string | Restaurant;
-      } | null)
-    | ({
-        relationTo: 'orders';
-        value: string | Order;
-      } | null)
-    | ({
-        relationTo: 'dishes';
-        value: string | Dish;
-      } | null)
-    | ({
-        relationTo: 'cities';
-        value: string | City;
-      } | null)
-    | ({
-        relationTo: 'users';
-        value: string | User;
-      } | null)
-    | ({
-        relationTo: 'customers';
-        value: string | Customer;
-      } | null)
-    | ({
-        relationTo: 'media';
-        value: string | Media;
-      } | null)
-    | ({
-        relationTo: 'categories';
-        value: string | Category;
-      } | null)
-    | ({
-        relationTo: 'FeedbackAndCooperations';
-        value: string | FeedbackAndCooperation;
-      } | null);
+  | ({
+    relationTo: 'restaurants';
+    value: string | Restaurant;
+  } | null)
+  | ({
+    relationTo: 'orders';
+    value: string | Order;
+  } | null)
+  | ({
+    relationTo: 'dishes';
+    value: string | Dish;
+  } | null)
+  | ({
+    relationTo: 'cities';
+    value: string | City;
+  } | null)
+  | ({
+    relationTo: 'users';
+    value: string | User;
+  } | null)
+  | ({
+    relationTo: 'customers';
+    value: string | Customer;
+  } | null)
+  | ({
+    relationTo: 'media';
+    value: string | Media;
+  } | null)
+  | ({
+    relationTo: 'categories';
+    value: string | Category;
+  } | null)
+  | ({
+    relationTo: 'FeedbackAndCooperations';
+    value: string | FeedbackAndCooperation;
+  } | null);
   globalSlug?: string | null;
   user:
-    | {
-        relationTo: 'users';
-        value: string | User;
-      }
-    | {
-        relationTo: 'customers';
-        value: string | Customer;
-      };
+  | {
+    relationTo: 'users';
+    value: string | User;
+  }
+  | {
+    relationTo: 'customers';
+    value: string | Customer;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -340,24 +341,24 @@ export interface PayloadLockedDocument {
 export interface PayloadPreference {
   id: string;
   user:
-    | {
-        relationTo: 'users';
-        value: string | User;
-      }
-    | {
-        relationTo: 'customers';
-        value: string | Customer;
-      };
+  | {
+    relationTo: 'users';
+    value: string | User;
+  }
+  | {
+    relationTo: 'customers';
+    value: string | Customer;
+  };
   key?: string | null;
   value?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
+  | {
+    [k: string]: unknown;
+  }
+  | unknown[]
+  | string
+  | number
+  | boolean
+  | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -384,11 +385,11 @@ export interface RestaurantsSelect<T extends boolean = true> {
   deliveryPrice?: T;
   freeAfterAmount?: T;
   workingHours?:
-    | T
-    | {
-        openTime?: T;
-        closeTime?: T;
-      };
+  | T
+  | {
+    openTime?: T;
+    closeTime?: T;
+  };
   isClosed?: T;
   isDelivery?: T;
   bannerImage?: T;
@@ -420,12 +421,12 @@ export interface OrdersSelect<T extends boolean = true> {
   commentToRestaurant?: T;
   isDelivery?: T;
   dishes?:
-    | T
-    | {
-        dish?: T;
-        quantity?: T;
-        id?: T;
-      };
+  | T
+  | {
+    dish?: T;
+    quantity?: T;
+    id?: T;
+  };
   restaurantID?: T;
   orderedByUser?: T;
   updatedAt?: T;
@@ -465,15 +466,15 @@ export interface UsersSelect<T extends boolean = true> {
   name?: T;
   phone?: T;
   addresses?:
-    | T
-    | {
-        city?: T;
-        district?: T;
-        apartment?: T;
-        houseNumber?: T;
-        entrance?: T;
-        id?: T;
-      };
+  | T
+  | {
+    city?: T;
+    district?: T;
+    apartment?: T;
+    houseNumber?: T;
+    entrance?: T;
+    id?: T;
+  };
   roles?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -492,6 +493,7 @@ export interface UsersSelect<T extends boolean = true> {
 export interface CustomersSelect<T extends boolean = true> {
   name?: T;
   phone?: T;
+  telegramId?: T; // Added for Telegram Mini App authentication
   restaurant?: T;
   isBlocked?: T;
   roles?: T;
@@ -588,5 +590,5 @@ export interface Auth {
 
 
 declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
+  export interface GeneratedTypes extends Config { }
 }

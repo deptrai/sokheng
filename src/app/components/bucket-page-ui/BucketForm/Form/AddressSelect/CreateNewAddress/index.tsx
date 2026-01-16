@@ -26,10 +26,11 @@ export default function CreateNewAddress({ userProfile, setUserProfile, t }: Pro
   const { id, addresses } = userProfile;
 
   const handleSubmit = async (newAddress: AddressData) => {
-    const updatedUser = { id, userData: { addresses: [newAddress, ...addresses] } };
+    const currentAddresses = addresses || [];
+    const updatedUser = { id, userData: { addresses: [newAddress, ...currentAddresses] } };
     const updatedAddresses = await createAddress({
       ...updatedUser,
-      userData: { addresses: updatedUser.userData.addresses.slice(0, 4) },
+      userData: { addresses: updatedUser.userData.addresses.slice(0, 4) as AddressData[] },
     });
 
     setUserProfile(updatedAddresses);

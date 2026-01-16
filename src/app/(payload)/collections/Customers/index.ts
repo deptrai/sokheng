@@ -50,6 +50,18 @@ const Customers: CollectionConfig = {
       required: false,
       type: "text",
     },
+    {
+      name: "telegramId",
+      label: "Telegram User ID",
+      type: "text",
+      unique: true,
+      index: true,
+      required: false,
+      admin: {
+        readOnly: true,
+        description: "Telegram User ID for Mini App authentication (auto-populated)",
+      },
+    },
 
     {
       name: "restaurant",

@@ -26,8 +26,11 @@ const useSidebar = () => {
   const { totalDishes } = useProductItem();
 
   const [isSidebarOpen, setIsSidebarOpen] = useAtom(atoms.isSidebarOpen);
-  const [selectedCity, setSelectedCity] = useAtom(atoms.selectedCity);
+  const [selectedCityId, setSelectedCityId] = useAtom(atoms.selectedCity);
   const [overlap, setOverlap] = useState("");
+
+  // Find selected city title from ID
+  const selectedCityTitle = cities?.find(c => c.id === selectedCityId)?.title || null;
 
   // ya eto isprawlyu
   const { languageTitle, handleChange } = useChangeLanguage();
@@ -48,7 +51,8 @@ const useSidebar = () => {
     setIsSidebarOpen(false);
   }
   function handleCitySelect(item: string) {
-    setSelectedCity(item);
+    // item is now city ID
+    setSelectedCityId(item);
     closeOverlap();
   }
   function handleClose() {
@@ -80,7 +84,7 @@ const useSidebar = () => {
       miniDishesCount: <MiniDishesCount count={totalDishes} className="right-0staging relative" />,
     },
     {
-      title: selectedCity ? `${t("city")}: ${selectedCity}` : t("chooseCity"),
+      title: selectedCityTitle ? `${t("city")}: ${selectedCityTitle}` : t("chooseCity"),
       icon: <LocationIcon className="h-5 w-5" />,
       onClick: () => setOverlap("cities"),
       authRequired: false,

@@ -9,8 +9,9 @@ import NextTopLoader from "nextjs-toploader";
 import { routing } from "@/i18n/routing";
 import dynamic from "next/dynamic";
 
-// Telegram Provider Component
-import { TelegramProvider } from "@/app/components/telegram-provider";
+// Telegram Providers
+import { TelegramUIProvider } from "@/app/components/telegram-ui-provider";
+import { TelegramAuthProvider } from "@/app/(pages)/_providers/TelegramAuthProvider";
 
 //widgets
 import TailwindIndicator from "@/app/components/tailwind-indicator/tailwind-indicator";
@@ -51,25 +52,27 @@ export default async function RootLayout({ children, params }: Props) {
         <JotaiProvider>
           <NextIntlClientProvider messages={messages}>
             <TanstackQueryProvider>
-              <TelegramProvider>
-                <Header />
-                <Sidebar />
-                
-                <NextTopLoader
-                  color="#FBDB65"
-                  showSpinner={false}
-                  speed={300}
-                  zIndex={3000}
-                  initialPosition={0.3}
-                  crawlSpeed={400}
-                  height={6}
-                  easing="ease"
-                  crawl={true}
-                />
-                <div className="mt-20 w-full md:mt-16">{children}</div>
-                <Footer />
-                <TailwindIndicator />
-              </TelegramProvider>
+              <TelegramUIProvider>
+                <TelegramAuthProvider>
+                  <Header />
+                  <Sidebar />
+
+                  <NextTopLoader
+                    color="#FBDB65"
+                    showSpinner={false}
+                    speed={300}
+                    zIndex={3000}
+                    initialPosition={0.3}
+                    crawlSpeed={400}
+                    height={6}
+                    easing="ease"
+                    crawl={true}
+                  />
+                  <div className="mt-20 w-full md:mt-16">{children}</div>
+                  <Footer />
+                  <TailwindIndicator />
+                </TelegramAuthProvider>
+              </TelegramUIProvider>
             </TanstackQueryProvider>
           </NextIntlClientProvider>
 

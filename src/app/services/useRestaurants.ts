@@ -8,19 +8,19 @@ import { useInfiniteQuery, useMutation } from "@tanstack/react-query";
 import { RESTAURANT, RESTAURANTS } from "./query/restaurantQuery";
 
 export const useGetRestaurantsQuery = (
-  { sortBy, deliveryTime, tag }: Filters,
+  { sortBy, deliveryTime, tag, city }: Filters,
   query: string,
   initialData: MainPageRestaurant[] | null = null,
 ) => {
   const { data, fetchNextPage, isFetchingNextPage, isLoading } = useInfiniteQuery<MainPageRestaurant[]>({
-    queryKey: ["restaurants", { sortBy, query, tag }],
+    queryKey: ["restaurants", { sortBy, query, tag, city }],
 
     queryFn: async ({ pageParam = 1 }) => {
       const { data } = await axios({
         data: {
           query: RESTAURANTS,
           // tag: { id: "676eab52ba0125606f9cd4ba" }
-          variables: { limit: DEFAULT_LIMIT, pageParam, sortBy, query },
+          variables: { limit: DEFAULT_LIMIT, pageParam, sortBy, query, city },
         },
       });
       return await data.data.Restaurants.docs;

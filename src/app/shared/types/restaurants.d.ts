@@ -13,6 +13,10 @@ interface MainPageRestaurant {
   };
   deliveryPrice: number;
   deliveryTime: string;
+  cities?: Array<{
+    id: string;
+    title: string;
+  }>;
   bannerImage: {
     url: string | null;
     alt: string;
@@ -37,6 +41,7 @@ type Filters = {
   deliveryTime: number | null;
   sortBy: string | null;
   tag: string | undefined;
+  city: string | null;
 };
 
 interface RestaurantId {

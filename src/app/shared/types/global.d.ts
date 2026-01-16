@@ -3,7 +3,7 @@ type LoginResponse = { exp: number; token: string; user: any };
 
 type I18N = "en" | "vi" | "km";
 
-type UserData = { id: string; phone: string; addresses: AddressData[] };
+// UserData type is now defined in src/types/user.d.ts with full Customer fields
 
 interface BannerInfo {
   title: string;
@@ -30,10 +30,12 @@ interface RestaurantWithDishesInfo {
 }
 
 type AddressData = {
+  city?: string | null;
   district: string;
   houseNumber: string;
   apartment: string;
-  city?: string;
+  entrance?: string | null;
+  id?: string | null;
 };
 
 type City = { id: string; title: string };

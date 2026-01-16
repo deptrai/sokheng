@@ -80,16 +80,24 @@ async function main() {
         // Step 1: Create/Update media files
         console.log('\n📸 Setting up media files...');
         const imageMap = {
-            'Xào (Stir-fry Noodles)': 'sokheng_stir_fry_noodles.png',
-            'Bò (Beef Dishes)': 'sokheng_beef_dish.png',
-            'Gà (Chicken Dishes)': 'sokheng_chicken_dish.png',
-            'Bún (Vermicelli)': 'sokheng_vermicelli_bowl.png',
-            'Khai Vị (Appetizers)': 'sokheng_salad_appetizer.png',
+            'Banner': 'sokheng_banner.png',
+            'Seafood Noodles': 'sokheng_seafood_noodles.png',
+            'Stir-fry Noodles': 'sokheng_stir_fry_noodles.png',
+            'Shaking Beef': 'sokheng_shaking_beef.png',
+            'Beef Dish': 'sokheng_beef_dish.png',
+            'Chicken Feet': 'sokheng_chicken_feet.png',
+            'Chicken Dish': 'sokheng_chicken_dish.png',
+            'Grilled Pork Vermicelli': 'sokheng_grilled_pork_vermicelli.png',
+            'Vermicelli Bowl': 'sokheng_vermicelli_bowl.png',
+            'Mango Salad': 'sokheng_mango_salad.png',
+            'Tofu': 'sokheng_tofu.png',
+            'Appetizer': 'sokheng_salad_appetizer.png',
+            'Hotpot': 'sokheng_hotpot.png',
         };
 
         const mediaIds: Record<string, ObjectId> = {};
 
-        for (const [category, filename] of Object.entries(imageMap)) {
+        for (const [key, filename] of Object.entries(imageMap)) {
             const mediaId = new ObjectId();
             const filePath = path.join(process.cwd(), 'public', 'media', filename);
 
@@ -112,13 +120,42 @@ async function main() {
                 width: 800,
                 height: 600,
                 url: `/media/${filename}`,
-                alt: `${category} dish`,
+                alt: `${key} image`,
                 createdAt: new Date(),
                 updatedAt: new Date(),
             });
 
-            mediaIds[category] = mediaId;
-            console.log(`  ✓ Created media for ${category}`);
+            mediaIds[key] = mediaId;
+            console.log(`  ✓ Created media for ${key}`);
+        }
+
+        // ... Steps 2 and 3 omitted (keep as is) ...
+
+        // Step 4: Insert new dishes
+        console.log('\n🍜 Adding new dishes...');
+        const dishIds: ObjectId[] = [];
+
+        // Helper to select image based on title
+        function getDishImageId(title: string, category: string): ObjectId {
+            const lowerTitle = title.toLowerCase();
+
+            // Priority matches based on specific keywords
+            if (lowerTitle.includes('hải sản') || lowerTitle.includes('seafood')) return mediaIds['Seafood Noodles'];
+            if (lowerTitle.includes('lúc lắc')) return mediaIds['Shaking Beef'];
+            if (lowerTitle.includes('chân gà')) return mediaIds['Chicken Feet'];
+            if (lowerTitle.includes('thịt nướng') && category.includes('Bún')) return mediaIds['Grilled Pork Vermicelli'];
+            if (lowerTitle.includes('xoài') && (lowerTitle.includes('gỏi') || lowerTitle.includes('nộm'))) return mediaIds['Mango Salad'];
+            if (lowerTitle.includes('đậu hũ')) return mediaIds['Tofu'];
+            if (lowerTitle.includes('nhúng')) return mediaIds['Hotpot'];
+
+            // Fallback to category defaults
+            if (category.includes('Xào')) return mediaIds['Stir-fry Noodles'];
+            if (category.includes('Bò')) return mediaIds['Beef Dish'];
+            if (category.includes('Gà')) return mediaIds['Chicken Dish'];
+            if (category.includes('Bún')) return mediaIds['Vermicelli Bowl'];
+            if (category.includes('Khai Vị')) return mediaIds['Appetizer'];
+
+            return mediaIds['Stir-fry Noodles']; // Ultimate fallback
         }
 
         // Step 2: Create/Update categories
@@ -153,16 +190,14 @@ async function main() {
         });
         console.log(`  ✓ Deleted ${deleteResult.deletedCount} old dishes`);
 
-        // Step 4: Insert new dishes
-        console.log('\n🍜 Adding new dishes...');
-        const dishIds: ObjectId[] = [];
 
         for (const [categoryName, dishes] of Object.entries(MENU_DATA)) {
             const categoryId = categoryIds[categoryName];
-            const mediaId = mediaIds[categoryName];
 
             for (const dish of dishes) {
                 const dishId = new ObjectId();
+                const imageId = getDishImageId(dish.title, categoryName);
+
                 await dishesCollection.insertOne({
                     _id: dishId,
                     title: dish.title,
@@ -172,7 +207,7 @@ async function main() {
                     availableAmount: 100,
                     cookTime: 15,
                     restaurant: new ObjectId(RESTAURANT_ID),
-                    image: mediaId,
+                    image: imageId,
                     categories: {
                         category: categoryName,
                     },
@@ -184,20 +219,47 @@ async function main() {
             }
         }
 
-        // Step 5: Update restaurant
-        console.log('\n🏪 Updating restaurant...');
-        await restaurantsCollection.updateOne(
+        // Step 5: Upsert restaurant (create if not exists, update if exists)
+        console.log('\n🏪 Upserting restaurant...');
+        const restaurantResult = await restaurantsCollection.updateOne(
             { _id: new ObjectId(RESTAURANT_ID) },
             {
                 $set: {
                     title: 'Sokheng (Hương Việt Quán)',
                     description: 'Authentic Vietnamese Cuisine - Món Ngon Hương Việt',
+                    address: 'Phnom Penh & Sihanoukville',
+                    deliveryTime: '45',
+                    deliveryPrice: 3,
+                    freeAfterAmount: 20,
+                    workingHours: {
+                        openTime: '08:00',
+                        closeTime: '22:00',
+                    },
+                    isClosed: false,
+                    isDelivery: true,
+                    budgetCategory: '2',
+                    isBlocked: false,
                     dishes: dishIds,
+                    cities: [
+                        new ObjectId('696840766b35e5361bfaa4a8'), // Phnom Penh
+                        new ObjectId('696840766b35e5361bfaa4a9'), // Sihanoukville
+                    ],
+                    bannerImage: mediaIds['Banner'], // ✅ Added banner image
                     updatedAt: new Date(),
                 },
-            }
+                $setOnInsert: {
+                    createdAt: new Date(),
+                },
+            },
+            { upsert: true }
         );
-        console.log('  ✓ Restaurant updated to "Sokheng (Hương Việt Quán)"');
+
+        if (restaurantResult.upsertedCount > 0) {
+            console.log('  ✓ Restaurant created: "Sokheng (Hương Việt Quán)"');
+        } else {
+            console.log('  ✓ Restaurant updated: "Sokheng (Hương Việt Quán)"');
+        }
+        console.log('  ✓ Cities: Phnom Penh, Sihanoukville');
 
         console.log('\n✅ Seeding completed successfully!');
         console.log(`📊 Total dishes added: ${dishIds.length}`);

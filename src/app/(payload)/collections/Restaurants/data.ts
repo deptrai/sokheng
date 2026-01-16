@@ -24,93 +24,93 @@ export const DELIVERY_TIMES = [
 export const OPEN_HOURS = [
   {
     label: "07:00",
-    value: "0700",
+    value: "07:00",
   },
   {
     label: "07:30",
-    value: "0730",
+    value: "07:30",
   },
   {
     label: "08:00",
-    value: "0800",
+    value: "08:00",
   },
   {
     label: "08:30",
-    value: "0830",
+    value: "08:30",
   },
   {
     label: "09:00",
-    value: "0900",
+    value: "09:00",
   },
   {
     label: "09:30",
-    value: "0930",
+    value: "09:30",
   },
   {
     label: "10:00",
-    value: "1000",
+    value: "10:00",
   },
   {
     label: "10:30",
-    value: "1030",
+    value: "10:30",
   },
   {
     label: "11:00",
-    value: "1100",
+    value: "11:00",
   },
   {
     label: "11:30",
-    value: "1130",
+    value: "11:30",
   },
   {
     label: "12:00",
-    value: "1200",
+    value: "12:00",
   },
 ];
 
 export const CLOSE_HOURS = [
   {
     label: "19:00",
-    value: "1900",
+    value: "19:00",
   },
   {
     label: "19:30",
-    value: "1930",
+    value: "19:30",
   },
   {
     label: "20:00",
-    value: "2000",
+    value: "20:00",
   },
   {
     label: "20:30",
-    value: "2030",
+    value: "20:30",
   },
   {
     label: "21:00",
-    value: "2100",
+    value: "21:00",
   },
   {
     label: "21:30",
-    value: "2130",
+    value: "21:30",
   },
   {
     label: "22:00",
-    value: "2200",
+    value: "22:00",
   },
   {
     label: "22:30",
-    value: "2230",
+    value: "22:30",
   },
   {
     label: "23:00",
-    value: "2300",
+    value: "23:00",
   },
   {
     label: "23:30",
-    value: "2330",
+    value: "23:30",
   },
   {
     label: "00:00",
-    value: "2400",
+    value: "00:00",
   },
 ];

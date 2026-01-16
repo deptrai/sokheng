@@ -21,41 +21,30 @@ export function getTimesTillMidnight() {
   return { times, timesNoDots };
 }
 
-function convertTimeFormat(timeString: string) {
-  return timeString.slice(1, 3) + ":" + timeString.slice(3);
-}
-
-export function isRestaurantOpen(openTime?: string, closeTime?: string) {
-  if (openTime && closeTime && typeof (openTime && closeTime) === "string") {
-    const open = convertTimeFormat(openTime);
-    const close = convertTimeFormat(closeTime);
-
-    const now = new Date();
-
-    // Split the times and convert them to Date objects
-    const [openHour, openMinute] = open.split(":").map(Number);
-    const [closeHour, closeMinute] = close.split(":").map(Number);
-
-    // Create Date objects for today's openTime and closeTime
-    const openDate = new Date(now);
-    openDate.setHours(openHour, openMinute, 0, 0);
-
-    const closeDate = new Date(now);
-    closeDate.setHours(closeHour, closeMinute, 0, 0);
-
-    // If the closeTime is before the openTime, it means the closeTime is the next day
-    if (closeDate <= openDate) {
-      // If it's after openTime or before closeTime the next day, return true
-      if (now >= openDate || now <= closeDate) {
-        return true;
-      }
-    } else {
-      // Normal comparison for same-day opening and closing
-      if (now >= openDate && now <= closeDate) {
-        return true;
-      }
-    }
+export function isRestaurantOpen(openTime?: string, closeTime?: string, currentDate?: Date): boolean {
+  if (!openTime || !closeTime) {
+    return false;
   }
 
-  return false;
+  const now = currentDate || new Date();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentTimeInMinutes = currentHour * 60 + currentMinute;
+
+  // Parse open and close times
+  const [openHour, openMinute] = openTime.split(':').map(Number);
+  const [closeHour, closeMinute] = closeTime.split(':').map(Number);
+
+  const openTimeInMinutes = openHour * 60 + openMinute;
+  const closeTimeInMinutes = closeHour * 60 + closeMinute;
+
+  // Check if restaurant operates overnight (closes next day)
+  if (closeTimeInMinutes <= openTimeInMinutes) {
+    // Overnight operation: open from openTime to midnight, then midnight to closeTime
+    // Restaurant is open if current time is >= openTime OR <= closeTime
+    return currentTimeInMinutes >= openTimeInMinutes || currentTimeInMinutes <= closeTimeInMinutes;
+  } else {
+    // Normal same-day operation
+    return currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes <= closeTimeInMinutes;
+  }
 }
